@@ -6,4 +6,4 @@ def hello_world():
     return 'Hello, World!'
 
 
-app.run(port=8080)
+app.run(port=8080, host="0.0.0.0")
