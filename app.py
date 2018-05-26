@@ -17,9 +17,12 @@ def hello_world():
 
 @app.route('/', methods=['POST'])
 def chat():
-    id = json.loads(request.data)["entry"][0]["messaging"][0]["sender"]["id"]
+    print (json.loads(request.data))
+    data = json.loads(request.data)
+    id = data["entry"][0]["messaging"][0]["sender"]["id"]
+    text_msg = data["entry"][0]["messaging"][0]['message']['text']
     print (id)
-    bot.send_text_message(id, "response")
+    bot.send_text_message(id, text_msg)
     
     
     return "ok"
